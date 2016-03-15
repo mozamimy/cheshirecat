@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'cheshirecat'
+
+Cheshirecat.deploy(
+  source: ARGV[0],
+  remote: ARGV[1],
+  branch: ARGV[2],
+  name: ARGV[3],
+  email: ARGV[4]
+)
