@@ -1,8 +1,12 @@
 # Cheshirecat
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cheshirecat`. To experiment with that code, run `bin/console` for an interactive prompt.
+Cheshirecat is an alternative deploy tool designed for middleman.
 
-TODO: Delete this and the text above, and describe your gem
+## Why cheshirecat, not middleman-deploy?
+
+It is good to use middleman-deploy in a typical situation. However, middleman-deploy assumes a target git repository and source git repository are same. So we cannot separate source repository and a repository that contains build files.
+
+Cheshirecat can deply built files to another repository by simple command `cheshirecat`.
 
 ## Installation
 
@@ -22,7 +26,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Following code is an example of usage of cheshirecat. Type like it in a directory of source repository,
+
+```
+$ (bundle exec) cheshirecat ./build 'git@github.com:mozamimy/mozamimy.github.com.git' master 'Moza USANE', 'mozamimy@quellencode.org'
+```
+
+First argument is a directory that contains built files, second argument is remote repository, third argument is a name of target branch, forth argument is your name, and fifth argument is your email address.
+
+In result, built files in `build` directory are pushed to specified branch of also specified remote repository, and the commit's author and email address are specified one.
 
 ## Development
 
@@ -32,10 +44,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/cheshirecat. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/mozamimy/cheshirecat.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
